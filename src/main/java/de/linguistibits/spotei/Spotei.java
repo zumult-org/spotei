@@ -11,6 +11,6 @@ package de.linguistibits.spotei;
 public class Spotei {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello SPOTEI!");
     }
 }
