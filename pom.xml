@@ -11,4 +11,12 @@
         <maven.compiler.target>21</maven.compiler.target>
         <exec.mainClass>de.linguistibits.spotei.Spotei</exec.mainClass>
     </properties>
+    <dependencies>
+        <!-- needed for XSLT 3.0 transformations -->
+        <dependency>
+          <groupId>net.sf.saxon</groupId>
+          <artifactId>Saxon-HE</artifactId>
+          <version>12.4</version>
+        </dependency>        
+    </dependencies>
 </project>
