@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<basic-transcription>
+    <head>
+        <meta-information>
+            <project-name>EXMARaLDA DemoKorpus</project-name>
+            <transcription-name>Beckhams</transcription-name>
+            <referenced-file
+                url="Beckhams.wav"/>
+            <referenced-file
+                url="Beckhams_web.mp4"/>
+            <ud-meta-information>
+            </ud-meta-information>
+            <comment/>
+            <transcription-convention>HIAT (simplified)</transcription-convention>
+        </meta-information>
+        <speakertable>
+            <speaker id="SPK0">
+                <abbreviation>PAR</abbreviation>
+                <sex value="m"/>
+                <languages-used>
+                    <language lang="eng"/>
+                </languages-used>
+                <l1/>
+                <l2/>
+                <ud-speaker-information>
+                    <ud-information attribute-name="Family: Marital status">Verheiratet</ud-information>
+                    <ud-information attribute-name="Birth">28. März 1935 in Cudworth</ud-information>
+                    <ud-information attribute-name="Occupation">Fernsehmoderator, Journalist, Autor</ud-information>
+                    <ud-information attribute-name="Family: Children">3</ud-information>
+                    <ud-information attribute-name="Name">Michael Parkinson</ud-information>
+                </ud-speaker-information>
+                <comment/>
+            </speaker>
+            <speaker id="SPK1">
+                <abbreviation>VIC</abbreviation>
+                <sex value="f"/>
+                <languages-used>
+                    <language lang="eng"/>
+                </languages-used>
+                <l1/>
+                <l2/>
+                <ud-speaker-information>
+                    <ud-information attribute-name="Name">Victoria Beckham</ud-information>
+                    <ud-information attribute-name="Family: Marital status">Verheiratet</ud-information>
+                    <ud-information attribute-name="Family: Children">3 Söhn, 1 Tochter</ud-information>
+                    <ud-information attribute-name="Occupation">Sängerin</ud-information>
+                    <ud-information attribute-name="Birth">14. April 1974 in Hertfordshire</ud-information>
+                </ud-speaker-information>
+                <comment/>
+            </speaker>
+            <speaker id="SPK2">
+                <abbreviation>DAV</abbreviation>
+                <sex value="m"/>
+                <languages-used>
+                    <language lang="eng"/>
+                </languages-used>
+                <l1/>
+                <l2/>
+                <ud-speaker-information>
+                    <ud-information attribute-name="Name">David Beckham</ud-information>
+                    <ud-information attribute-name="Birth ">2. Mail 1975 in London</ud-information>
+                    <ud-information attribute-name="Family: Marital status">Verheiratet</ud-information>
+                    <ud-information attribute-name="Occupation">Professioneller Fußballspieler</ud-information>
+                    <ud-information attribute-name="Family: Children">3 Söhne, 1 Tochter</ud-information>
+                </ud-speaker-information>
+                <comment/>
+            </speaker>
+        </speakertable>
+    </head>
+    <basic-body>
+        <common-timeline>
+            <tli id="T30" time="53.97916811991794"/>
+            <tli id="T3" time="54.901820567466"/>
+            <tli id="T4" time="55.3212080436242"/>
+            <tli id="T5" time="55.57284052931913"/>
+            <tli id="T31" time="56.28579923878808"/>
+            <tli id="T32" time="59.19908767504894"/>
+            <tli id="T33" time="59.7924118645849"/>
+            <tli id="T34" time="60.61239922765146"/>
+            <tli id="T2" time="60.98513268103731"/>
+            <tli id="T35" time="61.36572095144431"/>
+            <tli id="T36" time="62.619034969789936"/>
+            <tli id="T37" time="63.13902695612483"/>
+            <tli id="T38" time="65.96565006132987"/>
+            <tli id="T39" time="66.26564543806154"/>
+            <tli id="T6" time="66.85004988904265"/>
+            <tli id="T40" time="67.53185508185396"/>
+            <tli id="T41" time="68.5256106094401"/>
+            <tli id="T42" time="69.05226915970235"/>
+            <tli id="T43" time="69.35893110036139"/>
+            <tli id="T44" time="69.61226052960147"/>
+            <tli id="T45" time="71.01890551827661"/>
+            <tli id="T46" time="73.41220196820258"/>
+            <tli id="T0" time="138.005"/>
+            <tli id="T1" time="265.04"/>
+        </common-timeline>
+        <tier id="TIE7" speaker="SPK0" category="c" type="a" display-name="PAR [c]">
+            <event start="T3" end="T32">Reported speech</event>
+        </tier>
+        <tier id="TIE0" speaker="SPK0" category="v" type="t" display-name="PAR [v]">
+            <event start="T30" end="T3">I mean did you think: </event>
+            <event start="T3" end="T4">"Good God </event>
+            <event start="T4" end="T5">this/ </event>
+            <event start="T5" end="T31">this is the guy, </event>
+            <event start="T31" end="T32">this is the girl I'm gonna get married to and live the rest of my life with?" </event>
+            <event start="T32" end="T33">((0,4s)) David? </event>
+            <event start="T34" end="T2">Did you? </event>
+            <event start="T37" end="T38">((laughing)) </event>
+            <event start="T38" end="T39">Was </event>
+            <event start="T39" end="T40">it really like that? </event>
+        </tier>
+        <tier id="TIE4" speaker="SPK0" category="de" type="a" display-name="PAR [de]">
+            <event start="T30" end="T3">Ich meine, dachtest Du: </event>
+            <event start="T3" end="T4">"Lieber Gott, </event>
+            <event start="T4" end="T5">das/ </event>
+            <event start="T5" end="T31">das ist der Kerl, </event>
+            <event start="T31" end="T32">das ist das Mädchen das ich heiraten werde und mit dem ich den Rest meines Lebens verbringe?" </event>
+            <event start="T32" end="T33">((0,4s)) David? </event>
+            <event start="T34" end="T2">Hast Du? </event>
+            <event start="T37" end="T38">((lacht)) </event>
+            <event start="T38" end="T40">War es wirklich so? </event>
+        </tier>
+        <tier id="TIE8" speaker="SPK0" category="df" type="a" display-name="PAR [df]">
+            <event start="T4" end="T5">TROUBLE</event>
+        </tier>
+        <tier id="TIE1" speaker="SPK1" category="v" type="t" display-name="VIC [v]">
+            <event start="T36" end="T37">((0,3s)) Yeah. </event>
+            <event start="T37" end="T38">((laughing))</event>
+            <event start="T40" end="T41">((laughing)) </event>
+            <event start="T42" end="T43">((laughing)) </event>
+        </tier>
+        <tier id="TIE6" speaker="SPK1" category="de" type="a" display-name="VIC [de]">
+            <event start="T36" end="T37">((0,3s)) Ja. </event>
+            <event start="T37" end="T38">((lacht)) </event>
+            <event start="T40" end="T41">((lacht)) </event>
+            <event start="T42" end="T43">((lacht)) </event>
+        </tier>
+        <tier id="TIE2" speaker="SPK2" category="v" type="t" display-name="DAV [v]">
+            <event start="T33" end="T34">I felt that, yeah. </event>
+            <event start="T2" end="T35">Definitely. </event>
+            <event start="T35" end="T36">You did I hope, didn't you? </event>
+            <event start="T37" end="T38">((laughing)) </event>
+            <event start="T38" end="T39">Yeah. </event>
+            <event start="T39" end="T6">Yeah, yeah, </event>
+            <event start="T6" end="T40">I was/ I was/ </event>
+            <event start="T40" end="T41">it was definitely. </event>
+            <event start="T41" end="T42">((0,3s)) As soon as </event>
+            <event start="T42" end="T43">I see </event>
+            <event start="T43" end="T44">her. </event>
+            <event start="T44" end="T45">You know, I didn't even have to meet her. </event>
+            <event start="T45" end="T46">I seen her on the telly and I just wanted to meet her. </event>
+        </tier>
+        <tier id="TIE5" speaker="SPK2" category="de" type="a" display-name="DAV [de]">
+            <event start="T33" end="T34">Ich habe das gefühlt, ja. </event>
+            <event start="T2" end="T35">Definitiv. </event>
+            <event start="T35" end="T36">Du auch, hoffe ich, oder? </event>
+            <event start="T37" end="T38">((lacht)) </event>
+            <event start="T38" end="T39">Ja. </event>
+            <event start="T39" end="T6">Ja, ja, </event>
+            <event start="T6" end="T40">ich war/ ich war/ </event>
+            <event start="T40" end="T41">es war definitiv so. </event>
+            <event start="T41" end="T44">Sobald ich sie gesehen habe. </event>
+            <event start="T44" end="T45">Weißt Du, ich musste sie noch nicht mal treffen. </event>
+            <event start="T45" end="T46">Ich habe sie im Fernsehen gesehen und ich wollte sie einfach treffen. </event>
+        </tier>
+        <tier id="TIE9" speaker="SPK2" category="df" type="a" display-name="DAV [df]">
+            <event start="T6" end="T40">TROUBLE</event>
+            <event start="T40" end="T41">RESTART</event>
+        </tier>
+        <tier id="TIE3" category="nn" type="d" display-name="[nn]">
+            <event start="T37" end="T38">((laughter)) </event>
+        </tier>
+    </basic-body>
+</basic-transcription>

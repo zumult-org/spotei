@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:exmaralda="http://www.exmaralda.org"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <tei:idno xmlns:tei="http://www.tei-c.org/ns/1.0" type="RANDOM-ID">d2e1</tei:idno>
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title/>
+         </titleStmt>
+         <publicationStmt>
+            <authority/>
+            <availability>
+               <licence target="someurl"/>
+               <p/>
+            </availability>
+            <distributor/>
+            <address>
+               <addrLine/>
+            </address>
+         </publicationStmt>
+         <sourceDesc>
+            <recordingStmt>
+               <recording type="video">
+                  <media mimeType="audio/wav" url="Beckhams.wav"/>
+                  <media mimeType="video/mp4" url="Beckhams_web.mp4"/>
+                  <broadcast>
+                     <ab><!--Fill me in--></ab>
+                  </broadcast>
+                  <equipment>
+                     <ab><!--Fill me in--></ab>
+                  </equipment>
+               </recording>
+            </recordingStmt>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <particDesc>
+            <person xml:id="SPK0" n="PAR" sex="1">
+               <tei:idno xmlns:tei="http://www.tei-c.org/ns/1.0" type="RANDOM-ID">d2e61</tei:idno>
+               <persName>
+                  <forename>?</forename>
+                  <abbr>PAR</abbr>
+               </persName>
+            </person>
+            <person xml:id="SPK1" n="VIC" sex="2">
+               <tei:idno xmlns:tei="http://www.tei-c.org/ns/1.0" type="RANDOM-ID">d2e71</tei:idno>
+               <persName>
+                  <forename>?</forename>
+                  <abbr>VIC</abbr>
+               </persName>
+            </person>
+            <person xml:id="SPK2" n="DAV" sex="1">
+               <tei:idno xmlns:tei="http://www.tei-c.org/ns/1.0" type="RANDOM-ID">d2e81</tei:idno>
+               <persName>
+                  <forename>?</forename>
+                  <abbr>DAV</abbr>
+               </persName>
+            </person>
+         </particDesc>
+         <settingDesc>
+            <place><!--Fill me in--></place>
+            <setting>
+               <activity><!--Fill me in--></activity>
+            </setting>
+         </settingDesc>
+      </profileDesc>
+      <encodingDesc>
+         <appInfo>
+            <application ident="EXMARaLDA" version="1.8.2">
+               <label>EXMARaLDA Partitur-Editor</label>
+               <desc>Transcription Tool providing a TEI Export</desc>
+            </application>
+         </appInfo>
+         <transcriptionDesc ident="HIAT" version="2">
+            <desc><!--Fill me in--></desc>
+            <label><!--Fill me in--></label>
+         </transcriptionDesc>
+      </encodingDesc>
+      <revisionDesc>
+         <change when="2026-01-12T11:09:31.6156223+01:00">Created by XSL transformation from an
+            EXMARaLDA basic transcription</change>
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="xx">
+      <timeline unit="s">
+         <when xml:id="T_START" interval="0.0" since="T_START"/>
+         <when xml:id="T30" interval="53.97916811991794" since="T_START"/>
+         <when xml:id="T3" interval="54.901820567466" since="T_START"/>
+         <when xml:id="T4" interval="55.3212080436242" since="T_START"/>
+         <when xml:id="T5" interval="55.57284052931913" since="T_START"/>
+         <when xml:id="T31" interval="56.28579923878808" since="T_START"/>
+         <when xml:id="T32" interval="59.19908767504894" since="T_START"/>
+         <when xml:id="T33" interval="59.7924118645849" since="T_START"/>
+         <when xml:id="T34" interval="60.61239922765146" since="T_START"/>
+         <when xml:id="T2" interval="60.98513268103731" since="T_START"/>
+         <when xml:id="T35" interval="61.36572095144431" since="T_START"/>
+         <when xml:id="T36" interval="62.619034969789936" since="T_START"/>
+         <when xml:id="T37" interval="63.13902695612483" since="T_START"/>
+         <when xml:id="T38" interval="65.96565006132987" since="T_START"/>
+         <when xml:id="T39" interval="66.26564543806154" since="T_START"/>
+         <when xml:id="T6" interval="66.85004988904265" since="T_START"/>
+         <when xml:id="T40" interval="67.53185508185396" since="T_START"/>
+         <when xml:id="T41" interval="68.5256106094401" since="T_START"/>
+         <when xml:id="T42" interval="69.05226915970235" since="T_START"/>
+         <when xml:id="T43" interval="69.35893110036139" since="T_START"/>
+         <when xml:id="T44" interval="69.61226052960147" since="T_START"/>
+         <when xml:id="T45" interval="71.01890551827661" since="T_START"/>
+         <when xml:id="T46" interval="73.41220196820258" since="T_START"/>
+         <when xml:id="T0" interval="138.005" since="T_START"/>
+         <when xml:id="T1" interval="265.04" since="T_START"/>
+      </timeline>
+      <body>
+         <annotationBlock xml:id="ab_d2e203" who="SPK0" start="T30" end="T33">
+            <u xml:id="u_d2e203">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e197">
+                  <tei:anchor synch="T30"/>I mean did you think: <anchor synch="T3"/>"Good God <anchor synch="T4"/>this/ <anchor synch="T5"/>this is the guy, <anchor synch="T31"/>this is the girl I'm gonna get married to and live the rest of my life with?" <anchor synch="T32"/>((0,4s)) David?<tei:anchor synch="T33"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="c">
+               <span from="T3" to="T32">Reported speech</span>
+            </spanGrp>
+            <spanGrp type="de">
+               <span from="T30" to="T3">Ich meine, dachtest Du: </span>
+               <span from="T3" to="T4">"Lieber Gott, </span>
+               <span from="T4" to="T5">das/ </span>
+               <span from="T5" to="T31">das ist der Kerl, </span>
+               <span from="T31" to="T32">das ist das Mädchen das ich heiraten werde und mit dem ich den Rest meines Lebens verbringe?" </span>
+               <span from="T32" to="T33">((0,4s)) David? </span>
+            </spanGrp>
+            <spanGrp type="df">
+               <span from="T4" to="T5">TROUBLE</span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e305" who="SPK2" start="T33" end="T34">
+            <u xml:id="u_d2e305">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e247">
+                  <tei:anchor synch="T33"/>I felt that, yeah. <tei:anchor synch="T34"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T33" to="T34">Ich habe das gefühlt, ja. </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e222" who="SPK0" start="T34" end="T2">
+            <u xml:id="u_d2e222">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e259">
+                  <tei:anchor synch="T34"/>Did you? <tei:anchor synch="T2"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T34" to="T2">Hast Du? </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e308" who="SPK2" start="T2" end="T36">
+            <u xml:id="u_d2e308">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e271">
+                  <tei:anchor synch="T2"/>Definitely. <anchor synch="T35"/>You did I hope, didn't you? <tei:anchor synch="T36"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T2" to="T35">Definitiv. </span>
+               <span from="T35" to="T36">Du auch, hoffe ich, oder? </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e275" who="SPK1" start="T36" end="T38">
+            <u xml:id="u_d2e275">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e288">
+                  <tei:anchor synch="T36"/>((0,3s)) Yeah. <anchor synch="T37"/>((laughing))<tei:anchor synch="T38"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T36" to="T37">((0,3s)) Ja. </span>
+               <span from="T37" to="T38">((lacht)) </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e225" who="SPK0" start="T37" end="T40">
+            <u xml:id="u_d2e225">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e306">
+                  <tei:anchor synch="T37"/>((laughing)) <anchor synch="T38"/>Was <anchor synch="T39"/>it really like that? <tei:anchor synch="T40"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T37" to="T38">((lacht)) </span>
+               <span from="T38" to="T40">War es wirklich so? </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e314" who="SPK2" start="T37" end="T46">
+            <u xml:id="u_d2e314">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e325">
+                  <tei:anchor synch="T37"/>((laughing)) <anchor synch="T38"/>Yeah. <anchor synch="T39"/>Yeah, yeah, <anchor synch="T6"/>I was/ I was/ <anchor synch="T40"/>it was definitely. <anchor synch="T41"/>((0,3s)) As soon as <anchor synch="T42"/>I see <anchor synch="T43"/>her. <anchor synch="T44"/>You know, I didn't even have to meet her. <anchor synch="T45"/>I seen her on the telly and I just wanted to meet her. <tei:anchor synch="T46"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T37" to="T38">((lacht)) </span>
+               <span from="T38" to="T39">Ja. </span>
+               <span from="T39" to="T6">Ja, ja, </span>
+               <span from="T6" to="T40">ich war/ ich war/ </span>
+               <span from="T40" to="T41">es war definitiv so. </span>
+               <span from="T41" to="T44">Sobald ich sie gesehen habe. </span>
+               <span from="T44" to="T45">Weißt Du, ich musste sie noch nicht mal treffen. </span>
+               <span from="T45" to="T46">Ich habe sie im Fernsehen gesehen und ich wollte sie einfach treffen. </span>
+            </spanGrp>
+            <spanGrp type="df">
+               <span from="T6" to="T40">TROUBLE</span>
+               <span from="T40" to="T41">RESTART</span>
+            </spanGrp>
+         </annotationBlock>
+         <incident xml:id="inc_d2e395" type="nn" start="T37" end="T38" rend="((laughter)) ">
+            <desc>((laughter)) </desc>
+         </incident>
+         <annotationBlock xml:id="ab_d2e281" who="SPK1" start="T40" end="T41">
+            <u xml:id="u_d2e281">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e392">
+                  <tei:anchor synch="T40"/>((laughing)) <tei:anchor synch="T41"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T40" to="T41">((lacht)) </span>
+            </spanGrp>
+         </annotationBlock>
+         <annotationBlock xml:id="ab_d2e284" who="SPK1" start="T42" end="T43">
+            <u xml:id="u_d2e284">
+               <tei:seg xmlns:tei="http://www.tei-c.org/ns/1.0" type="contribution" xml:id="d2e404">
+                  <tei:anchor synch="T42"/>((laughing)) <tei:anchor synch="T43"/>
+               </tei:seg>
+            </u>
+            <spanGrp type="de">
+               <span from="T42" to="T43">((lacht)) </span>
+            </spanGrp>
+         </annotationBlock>
+      </body>
+   </text>
+</TEI>

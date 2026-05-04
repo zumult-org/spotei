@@ -411,7 +411,7 @@
     <!-- returns the position number of the timeline item with the given id -->
     <xsl:function name="exmaralda:timeline-position" as="xs:integer">
         <xsl:param name="timeline-id"/>
-        <xsl:value-of select="$timeline-positions/descendant::item[@id=$timeline-id]/@position"/>
+        <xsl:sequence select="$timeline-positions/descendant::item[@id=$timeline-id]/@position"/>
     </xsl:function>
     
     <!-- returns latest event that is connected to the given event through an uninterrupted chain of other events -->
@@ -431,7 +431,7 @@
         <xsl:param name="event" as="node()"/>
         <xsl:choose>
             <xsl:when test="not($event/following-sibling::event) or exmaralda:timeline-position($event/following-sibling::event[1]/@start)&gt;exmaralda:timeline-position($event/@end)">
-                <xsl:value-of select="$event/@end"/>
+                <xsl:sequence select="$event/@end"/>
             </xsl:when>
             <xsl:otherwise>
                 <!-- <xsl:value-of select="exmaralda:last-endpoint-of-segment-chain($event/following-sibling::event[1])"/> -->
