@@ -7,6 +7,8 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     
+    <xsl:param name="TYPE_OF_SENTENCE_SPANGRP">S</xsl:param>
+    
     <xsl:template match="@*|node()">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
@@ -27,9 +29,9 @@
             <xsl:copy-of select="."/>
         </xsl:variable>
         <xsl:variable name="START" select="descendant::tei:anchor[1]/@synch"/>
-        <xsl:variable name="FIRST_FROM" select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type='sentenceId']/tei:span[1]/@from"/>
+        <xsl:variable name="FIRST_FROM" select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]/tei:span[1]/@from"/>
         <xsl:variable name="END" select="descendant::tei:anchor[last()]/@synch"/>
-        <xsl:variable name="LAST_TO" select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type='sentenceId']/tei:span[last()]/@to"/>
+        <xsl:variable name="LAST_TO" select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]/tei:span[last()]/@to"/>
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             
@@ -41,7 +43,7 @@
                     (following-sibling::*/@xml:id=$FIRST_FROM)                        
                     ]">
                     <tei:seg type="sentence" subtype="filler">
-                        <xsl:attribute name="xml:id" select="concat(ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type='sentenceId']/tei:span[1], '_PREFIX')"/>
+                        <xsl:attribute name="xml:id" select="concat(ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]/tei:span[1], '_PREFIX')"/>
                         <xsl:apply-templates select="$SEG_COPY/descendant::*[
                             (following-sibling::*/@xml:id=$FIRST_FROM)                        
                             ]"/>                            
@@ -51,7 +53,7 @@
                 
              <!-- ********************* -->
                 
-             <xsl:for-each select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type='sentenceId']/tei:span">
+             <xsl:for-each select="ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]/tei:span">
                 <xsl:variable name="ID" select="text()"/>
                 <xsl:variable name="FROM" select="@from"/>
                 <xsl:variable name="TO" select="@to"/>
@@ -102,7 +104,7 @@
                     (preceding-sibling::*/@xml:id=$LAST_TO)                        
                     ]">
                     <tei:seg type="sentence" subtype="filler">
-                        <xsl:attribute name="xml:id" select="concat(ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type='sentenceId']/tei:span[last()], '_SUFFIX')"/>
+                        <xsl:attribute name="xml:id" select="concat(ancestor::tei:annotationBlock/descendant::tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]/tei:span[last()], '_SUFFIX')"/>
                         <xsl:apply-templates select="$SEG_COPY/descendant::*[
                             (preceding-sibling::*/@xml:id=$LAST_TO)                        
                             ]"/>                            
@@ -115,6 +117,6 @@
     </xsl:template>
     
     
-    <xsl:template match="tei:spanGrp[@type='sentenceId']"/>
+    <xsl:template match="tei:spanGrp[@type=$TYPE_OF_SENTENCE_SPANGRP]"/>
     
 </xsl:stylesheet>

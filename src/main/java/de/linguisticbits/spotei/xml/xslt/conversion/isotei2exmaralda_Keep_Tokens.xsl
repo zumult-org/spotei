@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    exclude-result-prefixes="xs" version="2.0">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:tesla="http://www.exmaralda.org"
+    xmlns:exmaralda="http://www.exmaralda.org"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
+    exclude-result-prefixes="xs tesla exmaralda" version="2.0">
 
     <xsl:param name="TRANSCRIPTION_SYSTEM">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->
@@ -89,7 +92,7 @@
                 <!-- ******************************** -->
                 <!-- ******************************** -->
                 <common-timeline>
-                    <xsl:apply-templates select="//tei:when"/>
+                    <xsl:apply-templates select="//tei:when[@xml:id=//@synch or @xml:id=//@start or @xml:id=//@end or @xml:id=//@from or @xml:id=//@to]"/>
                 </common-timeline>
                 <!-- ******************************** -->
                 <!-- ******************************** -->
@@ -107,7 +110,7 @@
                         select="distinct-values(current-group()/descendant::tei:spanGrp/@type)">
                         <xsl:variable name="TYPE" select="current()"/>
                         <tier type="a">
-                            <xsl:attribute name="category" select="current()"/>
+                            <xsl:attribute name="category" select="$TYPE"/>
                             <xsl:attribute name="id"
                                 select="concat('TIE_', current(), '_', current-grouping-key())"/>
                             <xsl:attribute name="speaker" select="current-grouping-key()"/>
@@ -127,7 +130,7 @@
                     <xsl:variable name="WHO" select="current-grouping-key()"/>
                     <xsl:for-each-group select="current-group()" group-by="@type">
                         <tier type="d">
-                            <xsl:attribute name="category">inc</xsl:attribute>
+                            <xsl:attribute name="category"><xsl:value-of select="current-grouping-key()"/></xsl:attribute>
                             <xsl:attribute name="id"
                                 select="concat('TIE_', $WHO, '_', current-grouping-key())"/>
                             <xsl:attribute name="speaker" select="$WHO"/>
@@ -189,9 +192,23 @@
         <event>
             <xsl:attribute name="start" select="@synch"/>
             <xsl:attribute name="end" select="following-sibling::tei:anchor[1]/@synch"/>
-            <xsl:value-of select="following-sibling::text()[1]"/>
+            <xsl:variable name="NEXT_ANCHOR" select="following-sibling::tei:anchor[1]"/>
+            <xsl:apply-templates select="following-sibling::*[
+                . &lt;&lt; $NEXT_ANCHOR
+                ]" mode="GET_TOKENS"/>
         </event>
     </xsl:template>
+    
+    <xsl:template match="tei:seg[not(tei:seg)]/*[not(self::tei:anchor)]" mode="GET_TOKENS">
+        <xsl:copy-of select="."/>
+    </xsl:template>
+    
+    <xsl:template match="tei:seg[not(tei:seg)]/*[not(self::tei:anchor)]" mode="#default"/>
+    
+
+    <!-- <xsl:template match="tei:seg[not(tei:seg)]/tei:anchor"/> -->    
+    
+    
 
     <xsl:template match="tei:span">
         <!-- <tei:span from="TLI_1224" to="TLI_1225">fʏnf vɔlt </tei:span> -->
@@ -208,7 +225,15 @@
         <event>
             <xsl:attribute name="start" select="@start"/>
             <xsl:attribute name="end" select="@end"/>
+            <xsl:copy-of select="."/>
+        </event>
+        <!-- <event>
+            <xsl:attribute name="start" select="@start"/>
+            <xsl:attribute name="end" select="@end"/>
             <xsl:choose>
+                <xsl:when test="@rend">
+                    <xsl:value-of select="@rend"/>
+                </xsl:when>
                 <xsl:when test="tei:desc/@rend">
                     <xsl:value-of select="tei:desc/@rend"/>
                 </xsl:when>
@@ -221,7 +246,7 @@
                     <xsl:text>))</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
-        </event>
+        </event> -->
     </xsl:template>
 
     <xsl:template match="tei:body/tei:pause">
