@@ -6,6 +6,22 @@
     version="2.0">
     
     <!-- 
+    NAME: detokenize.xsl
+    INPUT: tokenized, normalized ISO/TEI transcription
+    PARAMETERS:
+       - CONVENTION - a string specifying the transcription convention, possible values are
+            - HIAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-23681)
+            - cGAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-46169)
+            - GAT 
+            - GENERIC (=simple, largely failsafe method, it only distinguishes words, punctuation and incidents in square brackets
+    OUTPUT: an ISO/TEI conformant transcription file where explicit token markup is transformed into implicit character markup
+        
+    =================================================================
+    HISTORY:
+       - change     13-01-2026: transferred to spotei, documentation added, CONVENTION Parameter renamed 
+    -->        
+    
+    <!-- 
         Converting from ISO/TEI to EXB is done in several steps:
         (1) move <w> attributes to <span> elements : attributes2spans.xsl
         (2) transform token references in <span> to time references : token2timeSpanReferences.xsl
@@ -15,7 +31,7 @@
         Intermediate steps will still conform to ISO/TEI in general.
     -->
     
-    <xsl:param name="TRANSCRIPTION_SYSTEM">
+    <xsl:param name="CONVENTION">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->
         <xsl:choose>
             <xsl:when test="//tei:transcriptionDesc/@ident">
@@ -46,7 +62,7 @@
             <xsl:apply-templates select="*[not(self::tei:anchor and not(following-sibling::*))]"/>
             <!-- insert utterance etc. end symbol -->
             <xsl:choose>
-                <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
+                <xsl:when test="$CONVENTION='HIAT'">
                     <xsl:choose>
                         <xsl:when test="@subtype='declarative'">. </xsl:when>
                         <xsl:when test="@subtype='interrogative'">? </xsl:when>
@@ -64,7 +80,7 @@
 <!-- for the words we need some word-level symbols and to decide whether or not to add space -->
     <xsl:template match="tei:w">
         <xsl:choose>
-            <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
+            <xsl:when test="$CONVENTION='HIAT'">
                 <xsl:choose>
                     <xsl:when test="@type='uncertain'">
                         <xsl:text>(</xsl:text>
@@ -105,7 +121,7 @@
     
     <xsl:template match="tei:pc">
         <xsl:choose>
-            <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
+            <xsl:when test="$CONVENTION='HIAT'">
                 <xsl:choose> 
                     <!-- no space before pc unless it's the first quotation mark in a pair (yes this is ugly)
                                  utterance end symbols will be inserted later after last <w> -->
@@ -142,7 +158,7 @@
             <xsl:otherwise>
                 <xsl:variable name="DURATION" select="substring-after(substring-before(@dur,'S'), 'PT')"/>
                 <xsl:choose>
-                    <xsl:when test="$TRANSCRIPTION_SYSTEM='cGAT' or $TRANSCRIPTION_SYSTEM='GAT'">
+                    <xsl:when test="$CONVENTION='cGAT' or $CONVENTION='GAT'">
                         <xsl:choose>
                             <xsl:when test="@type='micro'">(.)</xsl:when>
                             <xsl:when test="@type='short'">(-)</xsl:when>
@@ -151,7 +167,7 @@
                             <xsl:otherwise>(<xsl:value-of select="$DURATION"/>)</xsl:otherwise>
                         </xsl:choose>                        
                     </xsl:when>
-                    <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
+                    <xsl:when test="$CONVENTION='HIAT'">
                         <xsl:choose>
                             <xsl:when test="@type='short'">&#x2022;</xsl:when>
                             <xsl:when test="@type='medium'">&#x2022; &#x2022;</xsl:when>
@@ -159,7 +175,7 @@
                             <xsl:otherwise>((<xsl:value-of select="$DURATION"/>s))</xsl:otherwise>
                         </xsl:choose>                                                
                     </xsl:when>
-                    <xsl:when test="$TRANSCRIPTION_SYSTEM='GENERIC'">
+                    <xsl:when test="$CONVENTION='GENERIC'">
                         <xsl:text>[</xsl:text><xsl:value-of select="$DURATION"/><xsl:text>]</xsl:text>
                     </xsl:when>
                     <xsl:otherwise>(<xsl:value-of select="$DURATION"/>)</xsl:otherwise>
@@ -179,7 +195,7 @@
     <xsl:template match="tei:seg/tei:vocal | tei:seg/tei:incident">
         <xsl:choose>
             <xsl:when test="tei:desc/@rend"><xsl:value-of select="tei:desc/@rend"/></xsl:when>
-            <xsl:when test="$TRANSCRIPTION_SYSTEM='GENERIC'">
+            <xsl:when test="$CONVENTION='GENERIC'">
                 <xsl:text>[</xsl:text><xsl:value-of select="tei:desc"/><xsl:text>]</xsl:text>
             </xsl:when>
             <xsl:otherwise>

@@ -5,7 +5,7 @@
     PARAMETERS:
        - LANGUAGE - should be a two or three letter ISO language code, default: xx
        - USE_XPOINTER - TRUE if idrefs are to be written in XPointer syntax, default: FALSE
-    OUTPUT: an ISO/conformant transcription file, no tokenisation into <w>, no segmentation into <w> 
+    OUTPUT: an ISO/TEI conformant transcription file, no tokenisation into <w>, no segmentation into <w> 
     =================================================================
     HISTORY:
        - change 03-03-2016: additional namespaces no longer necessary  
@@ -65,7 +65,13 @@
                     <!-- ***************************************************** -->
                     <sourceDesc>
                         <recordingStmt>
-                            <recording type="video">
+                            <recording>
+                                <xsl:attribute name="type">
+                                    <xsl:choose>
+                                        <xsl:when test="//referenced-file[ends-with(lower-case(@url), 'mp4')]">video</xsl:when>
+                                        <xsl:otherwise>audio</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
                                 <!-- element from TEI P5, but not allowed there as a child of recording -->
                                 <xsl:apply-templates select="//referenced-file"/>
                                 <broadcast>
@@ -75,7 +81,6 @@
                                 <!-- where recordings are made by the researcher, this would be -->
                                 <!-- place to specify the recording equipment (e.g. Camcorder) -->
                                 <equipment>
-                                    <ab><xsl:comment>Fill me in</xsl:comment></ab>
                                     <ab><xsl:comment>Fill me in</xsl:comment></ab>
                                 </equipment>                  
                             </recording>
@@ -99,18 +104,18 @@
                 </profileDesc>
                 <encodingDesc>
                         <appInfo>
-                                <!-- information about the application with which -->
-                                <!-- the transcription was created -->
-                                <application ident="EXMARaLDA" version="1.5.3">
-                                        <label>EXMARaLDA Partitur-Editor</label>
-                                        <desc>Transcription Tool providing a TEI Export</desc>
-                                </application>
+                            <!-- information about the application with which -->
+                            <!-- the transcription was created -->
+                            <application ident="EXMARaLDA" version="1.8.2">
+                                    <label>EXMARaLDA Partitur-Editor</label>
+                                    <desc>Transcription Tool providing a TEI Export</desc>
+                            </application>
                         </appInfo>       
                         <!-- information about the transcription convention used -->
                         <!-- change 03-03-2016: namespace switch no longer necessary -->
-                        <transcriptionDesc ident="HIAT" version="2004">
-                                <desc><xsl:comment>Fill me in</xsl:comment></desc>
-                                <label><xsl:comment>Fill me in</xsl:comment></label>
+                        <transcriptionDesc ident="xxxx" version="0000">
+                            <desc><xsl:comment>Fill me in</xsl:comment></desc>
+                            <label><xsl:comment>Fill me in</xsl:comment></label>
                         </transcriptionDesc>
                 </encodingDesc>
                 <revisionDesc>
@@ -148,7 +153,7 @@
     <!-- ************************************************* -->
     <xsl:template match="referenced-file">
         <media  xmlns="http://www.tei-c.org/ns/1.0">
-            <xsl:attribute name="mimeType"><xsl:value-of select="exmaralda:determine-recording-type(@url)"/>/xxx</xsl:attribute>
+            <xsl:attribute name="mimeType"><xsl:value-of select="exmaralda:determine-recording-type(@url)"/>/<xsl:value-of select="substring-after(lower-case(@url), '.')"/></xsl:attribute>
             <xsl:attribute name="url"><xsl:value-of select="@url"/></xsl:attribute>
         </media>        
     </xsl:template>
@@ -364,6 +369,11 @@
             <xsl:attribute name="type">
                 <xsl:value-of select="../@category"/>
             </xsl:attribute>
+            <xsl:if test="../ud-tier-information/ud-information[@attribute-name='ISO-TEI-Subtype']">
+                <xsl:attribute name="subtype">
+                    <xsl:value-of select="../ud-tier-information/ud-information[@attribute-name='ISO-TEI-Subtype']"/>
+                </xsl:attribute>                
+            </xsl:if>            
             <xsl:attribute name="start">
                 <xsl:value-of select="$XPOINTER_HASH"/><xsl:value-of select="@start"/>
             </xsl:attribute>

@@ -121,12 +121,13 @@
                 <!-- ******************************** -->
                 <!-- ******************************** -->
                 <!-- ******************************** -->
+
                 <!-- 10-12-2024, new for #503 -->
                 <xsl:for-each-group select="//tei:body/tei:incident[@who]" group-by="@who">
                     <xsl:variable name="WHO" select="current-grouping-key()"/>
                     <xsl:for-each-group select="current-group()" group-by="@type">
                         <tier type="d">
-                            <xsl:attribute name="category" select="current-grouping-key()"/>
+                            <xsl:attribute name="category">inc</xsl:attribute>
                             <xsl:attribute name="id"
                                 select="concat('TIE_', $WHO, '_', current-grouping-key())"/>
                             <xsl:attribute name="speaker" select="$WHO"/>

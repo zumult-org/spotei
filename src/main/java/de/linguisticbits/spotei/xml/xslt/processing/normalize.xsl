@@ -5,6 +5,24 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <!-- 
+    NAME: normalize.xsl
+    INPUT: an ISO/TEI transcription - no specific structural requirements
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with
+        - at least one <seg> element underneath each <u>
+        - redundant start and end anchors underneath each <seg>
+        - a random <idno> for the document in case none was provided
+        - a random <idno> for each <person> in case none was provided
+        - a @n attribute for each <person> in case none was provided
+        - a @unit attribute for the <timeline> in case none was provided
+        
+    =================================================================
+    HISTORY:
+       - change     12-01-2026: transferred to spotei, documentation added 
+-->        
+    
+    
     
     <xsl:variable name="PRINCIPAL-ROOT" select="/"/>
     

@@ -5,7 +5,25 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
-    <xsl:param name="TRANSCRIPTION_SYSTEM">
+    <!-- 
+    NAME: desegment.xsl
+    INPUT: a non-tokenized, normalized ISO/TEI transcription, i.e. no <w> tags yet, but at least one level of <seg> underneath <u>
+    PARAMETERS:
+       - CONVENTION - a string specifying the transcription convention, possible values are
+            - HIAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-23681)
+            - cGAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-46169)
+            - QualiBank (https://www.ukdataservice.ac.uk/media/622380/ukdamodeltranscript.pdf)
+            - GENERIC (=simple, largely failsafe method, it only distinguishes words, punctuation and incidents in square brackets
+    OUTPUT: an ISO/TEI conformant transcription file where the second level of <seg> is removed
+    NOTE: Currently, this only makes sense for HIAT
+        
+    =================================================================
+    HISTORY:
+       - change     13-01-2026: transferred to spotei, documentation added, CONVENTION Parameter renamed 
+    -->        
+    
+    
+    <xsl:param name="CONVENTION">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->
         <xsl:choose>
             <xsl:when test="//tei:transcriptionDesc/@ident">
@@ -26,7 +44,7 @@
         <xsl:apply-templates select="*[not(self::tei:anchor and not(following-sibling::*))]"/>
         <!-- insert utterance etc. end symbol -->
         <xsl:choose>
-            <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
+            <xsl:when test="$CONVENTION='HIAT'">
                 <tei:pc>
                     <xsl:choose>
                         <xsl:when test="@subtype='declarative'">. </xsl:when>
