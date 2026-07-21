@@ -2,6 +2,20 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     exclude-result-prefixes="xs" version="2.0">
+    <!-- 
+        NAME: isotei2exmaralda.xsl
+        INPUT: an ISO/TEI Spoken Transcription 
+        PARAMETERS: 
+           - TRANSCRIPTION_SYSTEM - determines the specifics for notation of pauses and other transcription system specific notations
+                                    the following values can be used: cGAT, GAT, HIAT, GENERIC
+                                    if no value is provided, the XSL will look into the <transcriptionDesc> element to determine a value
+                                    if that fails, it defaults to GENERIC
+        
+        OUTPUT: an EXMARaLDA Basic Transcription (exb) - this is an XML file as written by the EXMARaLDA Partitur-Editor 
+        =================================================================
+        HISTORY:
+-->        
+    
 
     <xsl:param name="TRANSCRIPTION_SYSTEM">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->

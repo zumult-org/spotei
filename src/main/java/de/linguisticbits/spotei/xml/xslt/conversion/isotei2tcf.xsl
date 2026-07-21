@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
+    NAME: isotei2tcf.xsl
+    INPUT: an ISO/TEI Spoken Transcription 
+    PARAMETERS: none
+    OUTPUT: a TCF file (https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/The_TCF_Format.html) 
+    =================================================================
+    HISTORY:
     change 03-03-2016: additional namespaces no longer necessary  xmlns:standoff="http://standoff.proposal"
     change 08-07-2016: new and hopefully definite mime type for textSource/@type attribute
     change 08-07-2016: first attempt at setting the language correctly

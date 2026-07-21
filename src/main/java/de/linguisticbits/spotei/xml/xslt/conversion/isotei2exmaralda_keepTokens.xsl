@@ -5,6 +5,22 @@
     xmlns:exmaralda="http://www.exmaralda.org"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     exclude-result-prefixes="xs tesla exmaralda" version="2.0">
+    
+    <!-- 
+        NAME: isotei2exmaralda_keepTokens.xsl
+        INPUT: an ISO/TEI Spoken Transcription 
+        PARAMETERS: 
+           - TRANSCRIPTION_SYSTEM - determines the specifics for notation of pauses and other transcription system specific notations
+                                    the following values can be used: cGAT, GAT, HIAT, GENERIC
+                                    if no value is provided, the XSL will look into the <transcriptionDesc> element to determine a value
+                                    if that fails, it defaults to GENERIC
+        
+        OUTPUT: an XML file which follows the EXMARaLDA Basic Transcription (exb) (an XML file as written by the EXMARaLDA Partitur-Editor) in its macro structure
+                but keeps the tokenisation elements (<w>, <pause> etc.) as micro structure inside <event>
+        =================================================================
+        HISTORY:
+-->        
+    
 
     <xsl:param name="TRANSCRIPTION_SYSTEM">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->
