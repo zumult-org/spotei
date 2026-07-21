@@ -92,8 +92,8 @@ public class Spotei {
         xsltHelper.transformXSLT(SpoteiConstants.ATTRIBUTES2SPANS_XSLT, inFile, outFile);
     }
 
-    public void normalize(File inFile, File outFile, String[][] parameters) throws IOException{
-        xsltHelper.transformXSLT(SpoteiConstants, inFile, outFile, parameters);
+    public void normalize(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.NORMALIZE_XSLT, inFile, outFile);
     }
     
 }
