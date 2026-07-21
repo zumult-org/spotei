@@ -9,22 +9,22 @@
     NAME: tokenize.xsl
     INPUT: a non-tokenized, normalized ISO/TEI transcription, i.e. no <w> tags yet, but at least one level of <seg> underneath <u>
     PARAMETERS:
-       - CONVENTION - a string specifying the transcription convention, possible values are
+       - TRANSCRIPTION_SYSTEM - a string specifying the transcription system, possible values are
             - HIAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-23681)
             - cGAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-46169)
             - QualiBank (https://www.ukdataservice.ac.uk/media/622380/ukdamodeltranscript.pdf)
             - GENERIC (=simple, largely failsafe method, it only distinguishes words, punctuation and incidents in square brackets
-    OUTPUT: an ISO/TEI conformant transcription file in which @from and @to attributes of <span> annotations point to ids of tokens rather than ids of <when> in the timeline
+    OUTPUT: an ISO/TEI conformant transcription file with character data tokenized into <w>, <pc>, etc.
     NOTE: None of these tokenisation methods is very sophisticated. In particular, word internal <anchor>s are not considered, and no hierarchical parsing for HIAT (utterance detection) is performed
           For many practical purposes, however, these methods should be useful enough.
           EXMARaLDA has more sophisticated methods for tokenizing HIAT and some additional methods
         
     =================================================================
     HISTORY:
-       - change     12-01-2026: transferred to spotei, documentation added, CONVENTION Parameter added 
+       - change     12-01-2026: transferred to spotei, documentation added, TRANSCRIPTION_SYSTEM Parameter added 
     -->        
     
-    <xsl:param name="CONVENTION">
+    <xsl:param name="TRANSCRIPTION_SYSTEM">
         <xsl:choose>
             <xsl:when test="//tei:transcriptionDesc/@ident">
                 <xsl:value-of select="//tei:transcriptionDesc/@ident"/>
@@ -42,7 +42,7 @@
     <xsl:template match="tei:seg/text()">
         <xsl:variable name="SEG_ID" select="parent::tei:seg/@xml:id"/>
         <xsl:choose>
-            <xsl:when test="$CONVENTION='HIAT'">
+            <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
                 <!-- The first parse is for non-verbal descriptions such as ((laughs)) -->
                 <xsl:analyze-string select="." regex="\(\([^\)]+\)\)">
                     <xsl:matching-substring>
@@ -101,7 +101,7 @@
             <!-- ********************************************************* -->
             <!-- ********************************************************* -->
             <!-- ********************************************************* -->
-            <xsl:when test="$CONVENTION='cGAT'">
+            <xsl:when test="$TRANSCRIPTION_SYSTEM='cGAT'">
                 <!-- The first parse is for non-verbal descriptions such as ((laughs)) -->
                 <xsl:analyze-string select="." regex="\(\([^\)]+\)\)">
                     <xsl:matching-substring>
@@ -179,7 +179,7 @@
             <!-- ********************************************************* -->
             <!-- ********************************************************* -->
             <!-- ********************************************************* -->
-            <xsl:when test="$CONVENTION='QualiBank'">
+            <xsl:when test="$TRANSCRIPTION_SYSTEM='QualiBank'">
                 <!-- QualiBank, based on collection The Edwardians -->
                 <!-- segments end with . ! ? for complete units, … but also ... is used to end other segments 
               and for pauses/hesitations, partly, a high number of . is used to indicate pauses.
