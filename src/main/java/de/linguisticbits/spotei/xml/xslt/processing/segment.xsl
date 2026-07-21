@@ -10,7 +10,7 @@
     NAME: segment.xsl
     INPUT: a tokenized, normalized ISO/TEI transcription with one level of <seg> underneath <u>
     PARAMETERS:
-       - CONVENTION - a string specifying the transcription convention, possible values are
+       - TRANSCRIPTION_SYSTEM - a string specifying the transcription convention, possible values are
             - HIAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-23681)
             - GAT
             - GENERIC (=simple, largely failsafe method, it only distinguishes words, punctuation and incidents in square brackets
@@ -21,7 +21,7 @@
        - created     13-01-2026 
     -->        
     
-    <xsl:param name="CONVENTION">
+    <xsl:param name="TRANSCRIPTION_SYSTEM">
         <xsl:choose>
             <xsl:when test="//tei:transcriptionDesc/@ident">
                 <xsl:value-of select="//tei:transcriptionDesc/@ident"/>
@@ -46,10 +46,10 @@
                     <xsl:copy>
                         <xsl:attribute name="count-iu">
                             <xsl:choose>
-                                <xsl:when test="$CONVENTION='HIAT'">
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
                                     <xsl:value-of select="count(preceding-sibling::tei:pc[matches(text(),'[\.\?!˙…]')]) + 1"/>                                                                                
                                 </xsl:when>
-                                <xsl:when test="$CONVENTION='GAT'">
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='GAT'">
                                     <xsl:value-of select="count(preceding-sibling::tei:pc[matches(text(),'[\.\?\-;,]')]) + 1"/>                                                                                
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -87,15 +87,15 @@
                         <xsl:attribute name="xml:id" select="concat($id, '_seg_1')"/>
                         <xsl:attribute name="type">
                             <xsl:choose>
-                                <xsl:when test="$CONVENTION='HIAT'">utterance</xsl:when>
-                                <xsl:when test="$CONVENTION='GAT'">intonation-unit</xsl:when>
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">utterance</xsl:when>
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='GAT'">intonation-unit</xsl:when>
                                 <xsl:otherwise>segment</xsl:otherwise>
                             </xsl:choose>    
                         </xsl:attribute>
                         <xsl:attribute name="subtype">
                             <xsl:variable name="LAST_PC" select="descendant::tei:pc[last()]/text()"/>
                             <xsl:choose>
-                                <xsl:when test="$CONVENTION='HIAT'">
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
                                     <xsl:choose>
                                         <xsl:when test="$LAST_PC='.'">declarative</xsl:when>
                                         <xsl:when test="$LAST_PC='?'">interrogative</xsl:when>
@@ -104,7 +104,7 @@
                                         <xsl:otherwise>not_classified</xsl:otherwise>                                    
                                     </xsl:choose>
                                 </xsl:when>
-                                <xsl:when test="$CONVENTION='GAT'">
+                                <xsl:when test="$TRANSCRIPTION_SYSTEM='GAT'">
                                     <xsl:choose>
                                         <xsl:when test="$LAST_PC='.'">low-falling</xsl:when>
                                         <xsl:when test="$LAST_PC=';'">mid-falling</xsl:when>
@@ -140,15 +140,15 @@
                             <xsl:attribute name="xml:id" select="concat($id, '_iu_', position())"/>
                             <xsl:attribute name="type">
                                 <xsl:choose>
-                                    <xsl:when test="$CONVENTION='HIAT'">utterance</xsl:when>
-                                    <xsl:when test="$CONVENTION='GAT'">intonation-unit</xsl:when>
+                                    <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">utterance</xsl:when>
+                                    <xsl:when test="$TRANSCRIPTION_SYSTEM='GAT'">intonation-unit</xsl:when>
                                     <xsl:otherwise>segment</xsl:otherwise>
                                 </xsl:choose>    
                             </xsl:attribute>
                             <xsl:attribute name="subtype">
                                 <xsl:variable name="LAST_PC" select="descendant::tei:pc[last()]/text()"/>
                                 <xsl:choose>
-                                    <xsl:when test="$CONVENTION='HIAT'">
+                                    <xsl:when test="$TRANSCRIPTION_SYSTEM='HIAT'">
                                         <xsl:choose>
                                             <xsl:when test="$LAST_PC='.'">declarative</xsl:when>
                                             <xsl:when test="$LAST_PC='?'">interrogative</xsl:when>
@@ -157,7 +157,7 @@
                                             <xsl:otherwise>not_classified</xsl:otherwise>                                    
                                         </xsl:choose>
                                     </xsl:when>
-                                    <xsl:when test="$CONVENTION='GAT'">
+                                    <xsl:when test="$TRANSCRIPTION_SYSTEM='GAT'">
                                         <xsl:choose>
                                             <xsl:when test="$LAST_PC='.'">low-falling</xsl:when>
                                             <xsl:when test="$LAST_PC=';'">mid-falling</xsl:when>
