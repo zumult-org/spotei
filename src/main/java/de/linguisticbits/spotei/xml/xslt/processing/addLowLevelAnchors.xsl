@@ -6,6 +6,18 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     
+    <!-- 
+    NAME: addLowLevelAnchors
+    INPUT: an ISO/TEI transcription - no specific structural requirements
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with redundant anchors on the lowest <seg> level
+        
+    =================================================================
+    HISTORY:
+       - change     12-01-2026: transferred to spotei, documentation added 
+-->        
+    
+    
     <xsl:template match="@* | node()">
         <xsl:copy>
             <xsl:apply-templates select="@* | node()"/>

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- change 03-03-2016: additional namespaces no longer necessary 
-        xmlns:isoSpoken="http://iso-tei-spoken.org/ns/1.0"
-        xmlns:standoff="http://standoff.proposal"
+<!-- 
+    NAME: folker2isotei.xsl
+    INPUT: an FOLKER Transcription (flk or fln) - this is an XML file as written by the FOLKER transcription tool or by the OrthoNormal tool
+    PARAMETERS:
+       - LANGUAGE - should be a two or three letter ISO language code, default: xx
+       - MAKE_INLINE_ATTRIBUTES - TRUE if <w> elements are to get inline attributes @norm, @lemma and @pos, default: TRUE
+       - MAKE_STANDOFF_ANNOTATIONS - TRUE if <span> elements are to be produced for normalisation, lemmatisation and POS tags, default: FALSE
+       - ENFORCE_SEG - TRUE if a <seg type='contribution'> is to be introduced, default: TRUE
+       - ENFORCE_SEG - TRUE if a <seg type='contribution'> is to be introduced
+       - USE_XPOINTER - TRUE if idrefs are to be written in XPointer syntax, default: FALSE
+       - SEGCOR_UNITS - TRUE if <segs> are to be classified according to SegCor terminology, default: FALSE (this will only be relevant for input that has been parsed according to the GAT Basic Transcript)
+    OUTPUT: an ISO/TEI conformant transcription file, no tokenisation into <w>, no segmentation into <w> 
+    =================================================================
+    HISTORY:
+       - change 03-03-2016: additional namespaces no longer necessary  
+            xmlns:isoSpoken="http://iso-tei-spoken.org/ns/1.0"
+            xmlns:standoff="http://standoff.proposal"
 -->        
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
@@ -28,7 +42,7 @@
     <xsl:param name="ENFORCE_SEG">TRUE</xsl:param>
     <!-- new 10-05-2019 -->
     <!-- if this parameter is set to TRUE, <segs> will be classified according to SegCor terminology -->
-    <xsl:param name="SEGCOR_UNITS">TRUE</xsl:param>
+    <xsl:param name="SEGCOR_UNITS">FALSE</xsl:param>
     
     <xsl:output method="xml" encoding="UTF-8"/>
     

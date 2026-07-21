@@ -8,13 +8,21 @@
     <xsl:output method="text"/>
     <xsl:strip-space elements="*"/>    
     <!-- 
-        which form of tokens to display
-        trans : the transcribed form
-        norm: the normalized form
-        lemma: the lemma
-        pos: the pos tag
-        phon: the phonetic transcription
-    -->
+        NAME: isotei2vtt.xsl
+        INPUT: an ISO/TEI Spoken Transcription 
+        PARAMETERS: 
+           - TYPE - determines which form of a <w> to display
+                        trans : the transcribed form
+                        norm: the normalized form
+                        lemma: the lemma
+                        pos: the pos tag
+                        phon: the phonetic transcription
+        
+        OUTPUT: an Web Video Text Tracks Format (VTT) subtitle file (https://www.w3.org/TR/webvtt1/)  
+        =================================================================
+        HISTORY:
+    -->        
+
     <xsl:param name="TYPE">trans</xsl:param>
     
     

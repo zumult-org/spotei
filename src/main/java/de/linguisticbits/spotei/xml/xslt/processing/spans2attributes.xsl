@@ -5,6 +5,17 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <!-- 
+    NAME: spans2attributes
+    INPUT: an ISO/TEI transcription with <spanGrp> with @type 'norm', 'lemma', 'pos', 'lang' and/or 'phon'
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with the respective spans moved to approproiate attributes of <w> elements
+    =================================================================
+    HISTORY:
+       - change     12-01-2026: transferred to spotei, documentation added 
+    -->        
+    
+    
     
     <xsl:template match="@*|node()">
         <xsl:copy>
