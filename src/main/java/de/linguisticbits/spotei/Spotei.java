@@ -92,8 +92,61 @@ public class Spotei {
         xsltHelper.transformXSLT(SpoteiConstants.ATTRIBUTES2SPANS_XSLT, inFile, outFile);
     }
 
+    public void desegment(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.DESEGMENT_XSLT, inFile, outFile, parameters);
+    }
+
+    public void detokenize(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.DETOKENIZE_XSLT, inFile, outFile, parameters);
+    }
+
+    public void flattenSegHierarchy(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.FLATTENSEGHIAERARCHY_XSLT, inFile, outFile);
+    }
+
+    public void insertSentenceLayer(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.INSERTSENTENCELAYER_XSLT, inFile, outFile, parameters);
+    }
+
+    public void interpolate(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.INTERPOLATE_XSLT, inFile, outFile);
+    }
+
     public void normalize(File inFile, File outFile) throws IOException{
         xsltHelper.transformXSLT(SpoteiConstants.NORMALIZE_XSLT, inFile, outFile);
     }
     
+    public void removeStrayAnchors(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.REMOVESTRAYANCHORS_XSLT, inFile, outFile);
+    }
+
+    public void removeTimepointsWithoutAbsolute(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.REMOVETIMEPOINTSWITHOUTABSOLUTE_XSLT, inFile, outFile);
+    }
+
+    public void segment(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.SEGMENT_XSLT, inFile, outFile, parameters);
+    }
+
+    public void spans2attributes(File inFile, File outFile) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.SPANS2ATTRIBUTES_XSLT, inFile, outFile);
+    }
+
+    public void time2tokenSpanReference(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.TIME2TOKENSPANREFERENCES_XSLT, inFile, outFile, parameters);
+    }
+
+    public void token2timeSpanReference(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.TOKEN2TIMESPANREFERENCES_XSLT, inFile, outFile, parameters);
+    }
+
+    public void tokenize(File inFile, File outFile, String[][] parameters) throws IOException{
+        xsltHelper.transformXSLT(SpoteiConstants.TOKENIZE_XSLT, inFile, outFile, parameters);
+    }
+    
+    //******************************************************
+    //********             OUTPUT                  *********
+    //******************************************************
+    
+
 }
