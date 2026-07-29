@@ -5,6 +5,18 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <!-- 
+    NAME: interpolate.xsl
+    INPUT: any ISO/TEI transcription at least to <when> elements with @interval
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with missing @interval attributes calculated by linear interpolation
+        
+    =================================================================
+    HISTORY:
+       - created     13-01-2026 
+    -->        
+    
+    
     <xsl:param name="TIMELINE_START" select="//tei:when[1]/@xml:id"/>
 
     <xsl:template match="@*|node()">

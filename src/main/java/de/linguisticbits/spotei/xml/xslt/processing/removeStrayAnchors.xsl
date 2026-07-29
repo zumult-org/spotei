@@ -5,6 +5,15 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <!-- 
+    NAME: removeStrayAnchors.xsl
+    INPUT: any ISO/TEI transcription 
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with all anchors removed whose @synch has no target in a <when> of the timeline
+        
+    -->        
+    
+    
     <xsl:template match="@*|node()">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>

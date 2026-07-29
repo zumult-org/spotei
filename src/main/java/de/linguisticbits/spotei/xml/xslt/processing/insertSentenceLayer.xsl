@@ -7,6 +7,19 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     
+    <!-- 
+    NAME: segment.xsl
+    INPUT: a tokenized, normalized ISO/TEI transcription with one level of <seg> underneath <u>
+    PARAMETERS:
+       - TYPE_OF_SENTENCE_SPANGRP - The @type attribute of the <spanGrp> determining sentences
+    OUTPUT: an ISO/TEI conformant transcription file with a second level of <seg> constructed from @from and @to in the specified <spanGrp>
+        
+    =================================================================
+    HISTORY:
+       - created     13-01-2026 
+    -->        
+    
+    
     <xsl:param name="TYPE_OF_SENTENCE_SPANGRP">S</xsl:param>
     
     <xsl:template match="@*|node()">
