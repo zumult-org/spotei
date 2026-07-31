@@ -6,6 +6,17 @@
     exclude-result-prefixes="xs"
     version="2.0">
     
+    <!-- 
+    NAME: flattenSegHierarchy.xsl
+    INPUT: a tokenized, normalized ISO/TEI transcription with more than one level of <seg> underneath <u>
+    PARAMETERS: none
+    OUTPUT: an ISO/TEI conformant transcription file with only one level of <seg> 
+        
+    =================================================================
+    HISTORY:
+    -->        
+    
+    
     <xsl:variable name="TIMELINE_COPY">
         <timeline>
             <xsl:for-each select="//tei:timeline/tei:when">

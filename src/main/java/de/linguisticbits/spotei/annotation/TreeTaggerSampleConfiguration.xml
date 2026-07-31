@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treetagger-configuration>
+    <tree-tagger-directory>C:\Users\bernd\Dropbox\TreeTagger</tree-tagger-directory>
+    <tree-tagger-parameter-file lang="de">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\2021-04-16_ParameterFile_ORIGINAL_ALL_FINAL.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="en">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\english-penn.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="fr">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\french.par</tree-tagger-parameter-file>
+</treetagger-configuration>

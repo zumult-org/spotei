@@ -4,6 +4,8 @@
  */
 package de.linguisticbits.spotei;
 
+import org.jdom.Namespace;
+
 /**
  *
  * @author bernd
@@ -11,6 +13,8 @@ package de.linguisticbits.spotei;
 public class SpoteiConstants {
     
     public static final String[][] EMPTY_PARAMETERS = {};
+    
+    public static final Namespace TEI_NAMESPACE =  Namespace.getNamespace("tei", "http://www.tei-c.org/ns/1.0");
     
     public static final String BASE_XSLT_PATH = "/de/linguisticbits/spotei/xml/xslt";
     
