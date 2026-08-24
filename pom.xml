@@ -1,22 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>de.linguistibits</groupId>
+    <groupId>de.linguisticbits</groupId>
     <artifactId>spotei</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.5</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <exec.mainClass>de.linguistibits.spotei.Spotei</exec.mainClass>
+        <exec.mainClass>de.linguisticbits.spotei.Spotei</exec.mainClass>
     </properties>
+    <name>spotei</name>
+    
+    <repositories>
+      <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/zumult-org/spotei</url>
+        </repository>      
+        <repository>
+          <id>github-manual</id>
+          <url>https://raw.githubusercontent.com/Exmaralda-Org/exmaralda/master/src/build/webjar/</url>
+        </repository>                      
+    </repositories>    
+    
+   
+    <!-- ***************************** -->   
+    <!-- ***************************** -->   
+    <!-- ***************************** -->   
+    <build>
+        <finalName>${project.artifactId}</finalName>       
+        <resources>
+            <resource>
+              <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xsl</include>
+                </includes>
+            </resource>
+            <resource>
+                 <directory>src/main/java</directory>
+            </resource>   
+        </resources>      
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <!-- changed 2024-11-01 for issue #172 -->
+                    <excludes>
+                        <exclude>**/data/*.*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+            <plugin>            
+                <groupId>org.apache.maven.plugins</groupId>
+                 <version>3.3.0</version>
+                <artifactId>maven-war-plugin</artifactId>   
+                <configuration>
+                    <warSourceDirectory>web</warSourceDirectory>
+                </configuration>           
+            </plugin>
+        </plugins>
+    </build>
+        
+    
     <dependencies>
         <!-- needed for XSLT 3.0 transformations -->
         <dependency>
           <groupId>net.sf.saxon</groupId>
           <artifactId>Saxon-HE</artifactId>
           <version>12.4</version>
-        </dependency>        
+        </dependency>       
+        
+        <dependency>
+            <groupId>org.annolab.tt4j</groupId>
+            <artifactId>org.annolab.tt4j</artifactId>
+            <version>1.2.1</version>
+        </dependency>     
+
+        <!-- EXMARaLDA is needed for many small tasks, -->
+        <!-- It has transitive dependencies for XML processing (e.g. JDOM, SAXON) -->
+        <dependency>
+            <groupId>org.exmaralda</groupId>
+            <artifactId>EXMARaLDA_WEB</artifactId>
+            <version>1.0.34</version>
+            <type>jar</type>
+        </dependency>
+         
+           
     </dependencies>
+    
+    
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/zumult-org/spotei</url>
+        </repository>
+    </distributionManagement>   
+    
 </project>
