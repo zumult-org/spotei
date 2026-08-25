@@ -4,6 +4,7 @@
  */
 package de.linguisticbits.spotei.utils;
 
+import de.linguisticbits.spotei.SpoteiConstants;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,6 +26,13 @@ public class ConfigurationReader {
     
     public ConfigurationReader(File configurationFile) throws JDOMException, IOException{
         System.out.println("[Spotei]  Reading configuration from "+ configurationFile.getAbsolutePath());
+        configurationDoc = FileIO.readDocumentFromLocalFile(configurationFile);
+    }
+
+    public ConfigurationReader() throws JDOMException, IOException{
+        String configurationPath = System.getenv(SpoteiConstants.CONFIGURATION_FILE_ENV_VARIABLE_NAME);
+        File configurationFile = new File(configurationPath);
+        System.out.println("[Spotei]  Reading configuration from system : "+ configurationFile.getAbsolutePath());
         configurationDoc = FileIO.readDocumentFromLocalFile(configurationFile);
     }
 

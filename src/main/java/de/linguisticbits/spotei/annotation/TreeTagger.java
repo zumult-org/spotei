@@ -26,8 +26,8 @@ public class TreeTagger {
     };
     
 
-    
     public static void treeTag(File inFile, File outFile, File configurationFile) throws IOException, JDOMException{
+
         ConfigurationReader configurationReader = new ConfigurationReader(configurationFile);
 
         String TT = configurationReader.getTreeTaggerDirectory();
