@@ -9,7 +9,7 @@
     NAME: desegment.xsl
     INPUT: a non-tokenized, normalized ISO/TEI transcription, i.e. no <w> tags yet, but at least one level of <seg> underneath <u>
     PARAMETERS:
-       - CONVENTION - a string specifying the transcription convention, possible values are
+       - TRANSCRIPTION_SYSTEM - a string specifying the transcription convention, possible values are
             - HIAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-23681)
             - cGAT (https://nbn-resolving.org/urn:nbn:de:bsz:mh39-46169)
             - QualiBank (https://www.ukdataservice.ac.uk/media/622380/ukdamodeltranscript.pdf)
@@ -23,7 +23,7 @@
     -->        
     
     
-    <xsl:param name="CONVENTION">
+    <xsl:param name="TRANSCRIPTION_SYSTEM">
         <!-- <transcriptionDesc ident="cGAT" version="2014"> -->
         <xsl:choose>
             <xsl:when test="//tei:transcriptionDesc/@ident">
@@ -44,7 +44,7 @@
         <xsl:apply-templates select="*[not(self::tei:anchor and not(following-sibling::*))]"/>
         <!-- insert utterance etc. end symbol -->
         <xsl:choose>
-            <xsl:when test="$CONVENTION='HIAT'">
+            <xsl:when test="$TRANSCRIPTION_SYSTEM'HIAT'">
                 <tei:pc>
                     <xsl:choose>
                         <xsl:when test="@subtype='declarative'">. </xsl:when>

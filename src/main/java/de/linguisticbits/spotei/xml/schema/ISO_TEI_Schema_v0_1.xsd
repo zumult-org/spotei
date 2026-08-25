@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
-  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />  
+<xs:schema 
+  xmlns:xml="http://www.w3.org/XML/1998/namespace"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
+  elementFormDefault="qualified" 
+  targetNamespace="http://www.tei-c.org/ns/1.0">
+  
+  <!-- Remote version of the import, may cause trouble with some validators -->
+  <!-- <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="https://www.w3.org/2001/xml.xsd" />  -->
+  <!-- Local version of the import, requires the xml.xsd file to be present in th same folder -->
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd" />
   
   <!-- ****************************************************************** -->
   <!-- ********** ROOT AND TOP-LEVEL DOCUMENT STRUCTURE ***************** -->
@@ -123,6 +132,7 @@
       <xs:attribute name="start" use="required" type="xs:IDREF"/>
       <xs:attribute name="end" use="required" type="xs:IDREF"/>
       <xs:attribute name="who" use="required" type="xs:IDREF"/>     
+      <xs:attribute ref="xml:lang" use="optional"/>      
     </xs:complexType>
   </xs:element>
   
@@ -215,6 +225,13 @@
       <xs:attribute name="who" type="xs:IDREF" use="optional"/>
       <!-- added 10-12-2024 (issue # 502) -->
       <xs:attribute name="type" type="xs:NCName" use="optional"/>
+      <!-- added 14-08-2026 -->
+      <xs:attribute name="rend" type="xs:string" use="optional"/>      
+      <!-- added 24-08-2026 -->
+      <xs:attribute name="subtype" type="xs:string" use="optional"/>      
+      <xs:attribute name="target" type="xs:string" use="optional"/>      
+      <xs:attribute name="toWhom" type="xs:IDREF" use="optional"/>      
+      <xs:attribute name="selection" type="xs:string" use="optional"/>      
     </xs:complexType>
   </xs:element>
   
@@ -302,7 +319,9 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>  
-      <xs:attribute ref="xml:lang" use="optional"/>            
+      <xs:attribute ref="xml:lang" use="optional"/>
+      <xs:attribute ref="xml:id" use="optional"/>            
+      <xs:attribute name="n" use="optional" type="xs:string"/>
     </xs:complexType>
   </xs:element>
 
@@ -320,6 +339,9 @@
       <xs:attribute ref="xml:lang" use="optional"/>            
       <!-- added 06-05-2025 -->
       <xs:attribute name="type" use="optional" type="xs:NCName"/> 
+      <xs:attribute ref="xml:id" use="optional"/>
+      <xs:attribute name="select" type="xs:string"/>
+      <xs:attribute name="corresp" type="xs:string"/>
     </xs:complexType>
   </xs:element>
 
@@ -552,6 +574,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="tei:activity"/>
+        <xs:element ref="tei:ab" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -592,7 +615,15 @@
         <xs:element ref="tei:label"/>
       </xs:sequence>
       <xs:attribute name="ident" use="required" type="xs:NCName"/>
-      <xs:attribute name="version" use="required" type="xs:integer"/>
+      <!-- <xs:attribute name="version" use="required" type="xs:integer"/>-->
+      <!-- Changed 14-08-2026 -->
+      <xs:attribute name="version" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(unspecified|[0-9]+(\.[0-9]+(\.[0-9]+)?)?)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>      
     </xs:complexType>
   </xs:element>
   
@@ -609,9 +640,15 @@
       <xs:attribute name="when" use="optional" type="xs:dateTime"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ab">
-    <xs:complexType/>
+  
+  <xs:element name="ab">    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+      </xs:sequence>
+    </xs:complexType>          
   </xs:element>
+  
   <xs:element name="label" type="xs:string"/>
   
 

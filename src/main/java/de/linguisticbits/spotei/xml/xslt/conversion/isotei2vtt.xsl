@@ -11,7 +11,7 @@
         NAME: isotei2vtt.xsl
         INPUT: an ISO/TEI Spoken Transcription 
         PARAMETERS: 
-           - TYPE - determines which form of a <w> to display
+           - FORM - determines which form of a <w> to display
                         trans : the transcribed form
                         norm: the normalized form
                         lemma: the lemma
@@ -55,7 +55,7 @@
         <xsl:text>&lt;/b&gt;</xsl:text>
 
         <xsl:choose>
-            <xsl:when test="$TYPE='trans'">
+            <xsl:when test="$FORM='trans'">
                 <xsl:apply-templates select="descendant::tei:seg"/>                
             </xsl:when>
             <xsl:otherwise>
@@ -68,7 +68,7 @@
     
     <xsl:template match="tei:seg">
         <xsl:choose>
-            <xsl:when test="$TYPE='norm'"><xsl:apply-templates select="descendant::tei:w[not(@norm='%' or @norm='&amp;')]"/></xsl:when>
+            <xsl:when test="$FORM='norm'"><xsl:apply-templates select="descendant::tei:w[not(@norm='%' or @norm='&amp;')]"/></xsl:when>
             <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
         </xsl:choose>
         
@@ -76,7 +76,7 @@
     
     <xsl:template match="tei:w">
         <xsl:choose>
-            <xsl:when test="$TYPE='norm'"><xsl:value-of select="@norm"/></xsl:when>
+            <xsl:when test="$FORM='norm'"><xsl:value-of select="@norm"/></xsl:when>
             <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
         </xsl:choose>
         <xsl:if test="not(following-sibling::*[1][self::tei:pc]) and following-sibling::*">

@@ -12,6 +12,7 @@ import de.linguisticbits.spotei.utils.XSLTHelperFactory;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -213,7 +214,29 @@ For command-specific parameters, consult the documentation.
         
     }
     
-   public void processCommand(String command, String[][] parameters,
+    public String processCommands (String[] commands, String[][] parameters, String inDocument) throws IOException{
+        String currentXML = inDocument;
+        for (String command : commands){
+            currentXML = processCommand(command, parameters, currentXML);
+        }
+        return currentXML;        
+    }
+
+    
+    public String processCommand(String command, String[][] parameters,
+                           String inDocument) throws IOException {
+       File tempInFile = File.createTempFile("spotei", ".xml");
+       File tempOutFile = File.createTempFile("spotei", ".xml");
+       
+        Files.writeString(tempInFile.toPath(), inDocument, StandardCharsets.UTF_8);    
+        processCommand(command, parameters, tempInFile, tempOutFile);
+        String result = Files.readString(tempOutFile.toPath(), StandardCharsets.UTF_8);
+        tempInFile.delete();
+        tempOutFile.delete();
+        return result;
+   }
+
+    public void processCommand(String command, String[][] parameters,
                            File inFile, File outFile) throws IOException {
 
     switch (command.toLowerCase()) {
@@ -527,14 +550,14 @@ For command-specific parameters, consult the documentation.
                 }
             }
             if (pathToConfig==null){
-                System.out.println("[Spotei] No configuration path found in " + pathToConfig);
-                throw new IOException("[Spotei] No configuration path found in " + pathToConfig);
+                System.out.println("[Spotei] No configuration path provided in parameters.");
+                System.out.println("[Spotei] Trying to read configuration from system. ");
+                pathToConfig = System.getenv(SpoteiConstants.CONFIGURATION_FILE_ENV_VARIABLE_NAME);
             }
             File configFile = new File(pathToConfig);
             if (!(configFile.exists() && configFile.canRead())){
                 System.out.println("[Spotei] Cannot read configuration at " + pathToConfig);
-                throw new IOException("[Spotei] Cannot read configuration at " + pathToConfig);
-                
+                throw new IOException("[Spotei] Cannot read configuration at " + pathToConfig);                
             }
             TreeTagger.treeTag(inFile, outFile, configFile);
         } catch (JDOMException ex) {
