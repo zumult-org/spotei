@@ -2,7 +2,6 @@
 <treetagger-configuration>
     <tree-tagger-directory>C:\Users\bernd\Dropbox\TreeTagger</tree-tagger-directory>
 
-
     <!-- Germanic languages -->
     <tree-tagger-parameter-file lang="da">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\danish.par</tree-tagger-parameter-file>
     <tree-tagger-parameter-file lang="nl">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\dutch.par</tree-tagger-parameter-file>
@@ -10,39 +9,38 @@
     <tree-tagger-parameter-file lang="de">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\german-spoken.par</tree-tagger-parameter-file>
     <!-- This should be the PENN tagset -->
     <tree-tagger-parameter-file lang="en">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\english.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\norwegian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\swedish.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="no">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\norwegian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="sv">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\swedish.par</tree-tagger-parameter-file>
     
     <!-- Romance languages -->
     <tree-tagger-parameter-file lang="ca">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\catalan.par</tree-tagger-parameter-file>
     <tree-tagger-parameter-file lang="fr">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\french-spoken.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\galician.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="gl">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\galician.par</tree-tagger-parameter-file>
     <tree-tagger-parameter-file lang="it">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\italian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\latin.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\portuguese.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\romanian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\spanish.par</tree-tagger-parameter-file>
-    
+    <tree-tagger-parameter-file lang="la">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\latin.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="pt">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\portuguese.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="ro">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\romanian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="es">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\spanish.par</tree-tagger-parameter-file>
     
     <!-- Slavic languages -->
     <tree-tagger-parameter-file lang="be">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\belarusian.par</tree-tagger-parameter-file>
     <tree-tagger-parameter-file lang="bg">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\bulgarian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="cz">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\czech.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\polish.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\russian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\slovak.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="si">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\slovenian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\ukrainian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="cs">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\czech.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="pl">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\polish.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="ru">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\russian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="sk">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\slovak.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="sl">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\slovenian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="uk">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\ukrainian.par</tree-tagger-parameter-file>
     
     <!-- Other -->
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\estonian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\finnish.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\greek.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\hungarian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\indonesian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\korean.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\mogolian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\persian.par</tree-tagger-parameter-file>
-    <tree-tagger-parameter-file lang="xx">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\swahili.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="et">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\estonian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="fi">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\finnish.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="el">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\greek.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="hu">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\hungarian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="id">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\indonesian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="ko">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\korean.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="mn">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\mongolian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="fa">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\persian.par</tree-tagger-parameter-file>
+    <tree-tagger-parameter-file lang="sw">C:\UDE\zumult-pipeline\src\main\java\de\linguisticbits\zumult\pipeline\treetagger\swahili.par</tree-tagger-parameter-file>
     
 </treetagger-configuration>
