@@ -117,7 +117,6 @@ For command-specific parameters, consult the documentation.
                     {"LANGUAGE", "en"},
                     {"TRANSCRIPTION_SYSTEM", "HIAT"},
                     {"USE_XPOINTER", "FALSE"},
-                    {"USE_XPOINTER", "FALSE"},
                     {"CONFIGURATION_FILE", "C:\\spotei\\spotei\\src\\main\\java\\de\\linguisticbits\\spotei\\annotation\\TreeTaggerSampleConfiguration.xml"}
                 };
 
