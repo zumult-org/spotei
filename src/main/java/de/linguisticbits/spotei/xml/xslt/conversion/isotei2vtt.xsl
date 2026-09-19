@@ -23,7 +23,7 @@
         HISTORY:
     -->        
 
-    <xsl:param name="TYPE">trans</xsl:param>
+    <xsl:param name="FORM">trans</xsl:param>
     
     
     

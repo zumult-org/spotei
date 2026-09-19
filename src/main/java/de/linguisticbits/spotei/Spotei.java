@@ -86,7 +86,12 @@ Available commands
     tokenize
                        
     orthoNormalize
-    treeTag                                              
+    treeTag   
+                       
+  Output
+    htmltable    
+    svgdensity                                                                                                            
+    plaintext                       
 
 Common parameters
 
@@ -353,6 +358,19 @@ For command-specific parameters, consult the documentation.
         case "treetag" :
             treeTag(inFile, outFile, parameters);
             break;
+            
+        //******************************************************
+        //********             OUTPUT              *********
+        //******************************************************
+        case "htmltable" :
+            htmlTable(inFile, outFile, parameters);
+            break;
+        case "svgdensity" :
+            svgDensity(inFile, outFile, parameters);
+            break;
+        case "plaintext" :
+            plainText(inFile, outFile, parameters);
+            break;
 
         default:
             System.out.println("Unknown command: " + command);
@@ -568,5 +586,26 @@ For command-specific parameters, consult the documentation.
     //******************************************************
     //********             OUTPUT                  *********
     //******************************************************
+
+    private void htmlTable(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.HTMLTABLE_XSLT, inFile, outFile, parameters);
+    }
+
+    private void svgDensity(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.SVGDENSITY_XSLT, inFile, outFile, parameters);
+    }
+
+    private void plainText(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.PLAINTEXT_XSLT, inFile, outFile, parameters);
+    }
 
 }

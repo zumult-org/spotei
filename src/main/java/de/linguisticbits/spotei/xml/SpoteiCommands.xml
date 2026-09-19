@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spotei>
+    <commands>
+        <command level="conversion">exmaralda2isotei</command>
+        <command level="conversion">exmaralda2isotei_eventtoken</command>
+        <command level="conversion">folker2isotei</command>
+        <command level="conversion">isotei2exmaralda</command>
+        <command level="conversion">isotei2exmaralda_keeptokens</command>
+        <command level="conversion">isotei2eaf</command>
+        <command level="conversion">isotei2folker</command>
+        <command level="conversion">isotei2tcf</command>
+        <command level="conversion">isotei2vtt</command>
+        
+        <command level="processing">addLowLevelAnchors</command>
+        <command level="processing">attributes2spans</command>
+        <command level="processing">desegment</command>
+        <command level="processing">detokenize</command>
+        <command level="processing">flattenSegHierarchy</command>
+        <command level="processing">insertSentenceLayer</command>
+        <command level="processing">interpolate</command>
+        <command level="processing">normalize</command>
+        <command level="processing">removeStrayAnchors</command>
+        <command level="processing">removeTimepointsWithoutAbsolute</command>
+        <command level="processing">segment</command>
+        <command level="processing">spans2attributes</command>
+        <command level="processing">time2tokenSpanReference</command>
+        <command level="processing">token2timeSpanReference</command>
+        <command level="processing">tokenize</command>
+        <command level="processing">orthoNormalize</command>
+        <command level="processing">treeTag</command>
+        
+        <command level="output">htmltable</command>
+        <command level="output">svgdensity</command>
+        <command level="output">plaintext</command>
+    </commands>
+    
+    <parameters>
+        <parameter>LANGUAGE</parameter>
+        <parameter default="GENERIC">TRANSCRIPTION_SYSTEM</parameter>
+        <parameter>USE_XPOINTER</parameter>
+        <parameter>MAKE_INLINE_ATTRIBUTES</parameter>
+        <parameter>MAKE_STANDOFF_ANNOTATIONS</parameter>
+        <parameter>ENFORCE_SEG</parameter>
+        <parameter>SEGCOR_UNITS</parameter>
+        <parameter>FORM</parameter>
+    </parameters>
+    
+    
+</spotei>
+

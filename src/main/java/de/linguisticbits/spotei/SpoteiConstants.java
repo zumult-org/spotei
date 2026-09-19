@@ -48,6 +48,11 @@ public class SpoteiConstants {
     public static final String TOKEN2TIMESPANREFERENCES_XSLT = PROCESSING_XSLT_PATH + "/token2timeSpanReferences.xsl";
     public static final String TOKENIZE_XSLT = PROCESSING_XSLT_PATH + "/tokenize.xsl";
     
+    public static final String HTMLTABLE_XSLT = OUTPUT_XSLT_PATH + "/isotei2html_table.xsl";
+    public static final String SVGDENSITY_XSLT = OUTPUT_XSLT_PATH + "/isotei2svg_density.xsl";
+    public static final String PLAINTEXT_XSLT = OUTPUT_XSLT_PATH + "/isotei2txt.xsl";
+
+
     public static final String CONFIGURATION_FILE_ENV_VARIABLE_NAME = "SPOTEI_TT_CONFIG";
     
     
