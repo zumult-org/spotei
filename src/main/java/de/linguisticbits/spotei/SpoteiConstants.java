@@ -16,6 +16,8 @@ public class SpoteiConstants {
     
     public static final Namespace TEI_NAMESPACE =  Namespace.getNamespace("tei", "http://www.tei-c.org/ns/1.0");
     
+    public static final String COMMANDS_XML_PATH = "/de/linguisticbits/spotei/xml/SpoteiCommands.xml";
+    
     public static final String BASE_XSLT_PATH = "/de/linguisticbits/spotei/xml/xslt";
     
     public static final String CONVERSION_XSLT_PATH = BASE_XSLT_PATH + "/conversion";

@@ -29,20 +29,23 @@
         <command level="processing">orthoNormalize</command>
         <command level="processing">treeTag</command>
         
-        <command level="output">htmltable</command>
-        <command level="output">svgdensity</command>
-        <command level="output">plaintext</command>
+        <command level="output" returnType="text/html">htmltable</command>
+        <command level="output" returnType="image/svg+xml">svgdensity</command>
+        <command level="output" returnType="text/plain">plaintext</command>
     </commands>
     
     <parameters>
-        <parameter>LANGUAGE</parameter>
-        <parameter default="GENERIC">TRANSCRIPTION_SYSTEM</parameter>
-        <parameter>USE_XPOINTER</parameter>
-        <parameter>MAKE_INLINE_ATTRIBUTES</parameter>
-        <parameter>MAKE_STANDOFF_ANNOTATIONS</parameter>
-        <parameter>ENFORCE_SEG</parameter>
-        <parameter>SEGCOR_UNITS</parameter>
-        <parameter>FORM</parameter>
+        <parameter default="true">enforceSeg</parameter>
+        <parameter default="trans">form</parameter>
+        <parameter default="en">language</parameter>
+        <parameter default="true">makeInlineAttributes</parameter>
+        <parameter default="false">makeStandoffAnnotations</parameter>
+        <parameter default="false">segCorUnits</parameter>
+        <parameter default="small">size</parameter>
+        <parameter default=".*">spanGrpType</parameter>
+        <parameter default="GENERIC">transcriptionSystem</parameter>
+        <parameter default="S">typeOfSentenceSpanGrp</parameter>
+        <parameter default="false">useXPointer</parameter>
     </parameters>
     
     
