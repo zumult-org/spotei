@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spotei>
+    <commands>
+        <command level="conversion">exmaralda2isotei</command>
+        <command level="conversion">exmaralda2isotei_eventtoken</command>
+        <command level="conversion">folker2isotei</command>
+        <command level="conversion">isotei2exmaralda</command>
+        <command level="conversion">isotei2exmaralda_keeptokens</command>
+        <command level="conversion">isotei2eaf</command>
+        <command level="conversion">isotei2folker</command>
+        <command level="conversion">isotei2tcf</command>
+        <command level="conversion">isotei2vtt</command>
+        
+        <command level="processing">addLowLevelAnchors</command>
+        <command level="processing">attributes2spans</command>
+        <command level="processing">desegment</command>
+        <command level="processing">detokenize</command>
+        <command level="processing">flattenSegHierarchy</command>
+        <command level="processing">insertSentenceLayer</command>
+        <command level="processing">interpolate</command>
+        <command level="processing">normalize</command>
+        <command level="processing">removeStrayAnchors</command>
+        <command level="processing">removeTimepointsWithoutAbsolute</command>
+        <command level="processing">segment</command>
+        <command level="processing">spans2attributes</command>
+        <command level="processing">time2tokenSpanReference</command>
+        <command level="processing">token2timeSpanReference</command>
+        <command level="processing">tokenize</command>
+        <command level="processing">orthoNormalize</command>
+        <command level="processing">treeTag</command>
+        
+        <command level="output" returnType="text/html">htmltable</command>
+        <command level="output" returnType="image/svg+xml">svgdensity</command>
+        <command level="output" returnType="text/plain">plaintext</command>
+    </commands>
+    
+    <parameters>
+        <parameter default="true">enforceSeg</parameter>
+        <parameter default="trans">form</parameter>
+        <parameter default="en">language</parameter>
+        <parameter default="true">makeInlineAttributes</parameter>
+        <parameter default="false">makeStandoffAnnotations</parameter>
+        <parameter default="false">segCorUnits</parameter>
+        <parameter default="small">size</parameter>
+        <parameter default=".*">spanGrpType</parameter>
+        <parameter default="GENERIC">transcriptionSystem</parameter>
+        <parameter default="S">typeOfSentenceSpanGrp</parameter>
+        <parameter default="false">useXPointer</parameter>
+    </parameters>
+    
+    
+</spotei>
+

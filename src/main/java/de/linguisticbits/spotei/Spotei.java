@@ -12,6 +12,10 @@ import de.linguisticbits.spotei.utils.XSLTHelperFactory;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -86,7 +90,12 @@ Available commands
     tokenize
                        
     orthoNormalize
-    treeTag                                              
+    treeTag   
+                       
+  Output
+    htmltable    
+    svgdensity                                                                                                            
+    plaintext                       
 
 Common parameters
 
@@ -116,9 +125,8 @@ For command-specific parameters, consult the documentation.
                 String[][] parameters = {
                     {"LANGUAGE", "en"},
                     {"TRANSCRIPTION_SYSTEM", "HIAT"},
-                    {"USE_XPOINTER", "FALSE"},
-                    {"USE_XPOINTER", "FALSE"},
-                    {"CONFIGURATION_FILE", "C:\\spotei\\spotei\\src\\main\\java\\de\\linguisticbits\\spotei\\annotation\\TreeTaggerSampleConfiguration.xml"}
+                    {"USE_XPOINTER", "FALSE"}
+                    //{"CONFIGURATION_FILE", "C:\\spotei\\spotei\\src\\main\\java\\de\\linguisticbits\\spotei\\annotation\\TreeTaggerSampleConfiguration.xml"}
                 };
 
                 File inFile = new File("C:\\spotei\\spotei\\src\\main\\java\\data\\beckhams.exb");
@@ -221,12 +229,39 @@ For command-specific parameters, consult the documentation.
         }
         return currentXML;        
     }
+    
+    public String processCommands(
+            String[] commands,
+            String[][] parameters,
+            URI inputUri) throws IOException {
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(inputUri)
+                .GET()
+                .build();
+
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8)
+            );
+
+            if (response.statusCode() < 200 || response.statusCode() >= 300) {
+                throw new IOException("Could not retrieve " + inputUri + ": HTTP " + response.statusCode());
+            }
+            return processCommands(commands,parameters,response.body());
+
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+            throw new IOException("Interrupted while retrieving " + inputUri, ex);
+        }
+    }    
 
     
     public String processCommand(String command, String[][] parameters,
                            String inDocument) throws IOException {
-       File tempInFile = File.createTempFile("spotei", ".xml");
-       File tempOutFile = File.createTempFile("spotei", ".xml");
+        File tempInFile = File.createTempFile("spotei", ".xml");
+        File tempOutFile = File.createTempFile("spotei", ".xml");
        
         Files.writeString(tempInFile.toPath(), inDocument, StandardCharsets.UTF_8);    
         processCommand(command, parameters, tempInFile, tempOutFile);
@@ -353,6 +388,19 @@ For command-specific parameters, consult the documentation.
 
         case "treetag" :
             treeTag(inFile, outFile, parameters);
+            break;
+            
+        //******************************************************
+        //********             OUTPUT              *********
+        //******************************************************
+        case "htmltable" :
+            htmlTable(inFile, outFile, parameters);
+            break;
+        case "svgdensity" :
+            svgDensity(inFile, outFile, parameters);
+            break;
+        case "plaintext" :
+            plainText(inFile, outFile, parameters);
             break;
 
         default:
@@ -569,5 +617,26 @@ For command-specific parameters, consult the documentation.
     //******************************************************
     //********             OUTPUT                  *********
     //******************************************************
+
+    private void htmlTable(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.HTMLTABLE_XSLT, inFile, outFile, parameters);
+    }
+
+    private void svgDensity(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.SVGDENSITY_XSLT, inFile, outFile, parameters);
+    }
+
+    private void plainText(File inFile, File outFile, String[][] parameters) throws IOException {
+        System.out.print("[Spotei] tokenize " + inFile.getAbsolutePath() + " " + outFile.getAbsolutePath() + " ");
+        printParameters(parameters);
+        System.out.println("");
+        xsltHelper.transformXSLT(SpoteiConstants.PLAINTEXT_XSLT, inFile, outFile, parameters);
+    }
 
 }
